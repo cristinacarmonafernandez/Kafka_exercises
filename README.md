@@ -1,6 +1,7 @@
 # Kafka Hands-on Lab
 
 Prácticas personales de Apache Kafka realizadas como parte de mi proceso de aprendizaje.
+Nota: Este repositorio contiene código y documentación desarrollados por mí con fines de aprendizaje. No incluye ni redistribuye el material original del curso en el que se basan los ejercicios.
 
 ## Tecnologías
 
