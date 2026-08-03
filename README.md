@@ -1,2 +1,1 @@
-# Kafka_exercises
-En este repositorio existen ejercicios de Apache Kafka
+# Kafka_exercisesEste repositorio contiene mis soluciones personales a ejercicios realizados durante una formación sobre Apache Kafka. El código es de elaboración propia. Los enunciados originales y el material del curso no se incluyen por estar sujetos a derechos de autor de sus respectivos propietarios.
