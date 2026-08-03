@@ -1,2 +1,33 @@
-# Kafka_exercises
-Este repositorio contiene mis soluciones personales a ejercicios realizados durante una formación sobre Apache Kafka. El código es de elaboración propia. Los enunciados originales y el material del curso no se incluyen por estar sujetos a derechos de autor de sus respectivos propietarios.
+# Kafka Hands-on Lab
+
+Prácticas personales de Apache Kafka realizadas como parte de mi proceso de aprendizaje.
+
+## Tecnologías
+
+- Apache Kafka
+- Kafka Connect
+- Kafka Streams
+- Schema Registry
+- Docker Compose
+- Java
+- Avro
+
+## Contenido
+
+| Proyecto | Descripción |
+|----------|-------------|
+| Producers | Envío de eventos |
+| Consumers | Lectura de eventos |
+| Topics | Gestión de topics |
+| Consumer Groups | Balanceo de carga |
+| Schema Registry | Serialización Avro |
+| Kafka Connect | Integración con fuentes externas |
+| Kafka Streams | Procesamiento en tiempo real |
+
+## Arquitectura
+
+
+## Cómo ejecutar
+
+```bash
+docker compose up
