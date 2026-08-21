@@ -25,12 +25,12 @@ Fuente de datos
 
 Para realizar el ejercicio se ha utilizado:
 
-Apache Kafka / Confluent Platform 7.8.9
-Docker
-Docker Compose
-Kafka en modo KRaft
-PowerShell
-Visual Studio Code
+- Apache Kafka / Confluent Platform 7.8.9
+- Docker
+- Docker Compose
+- Kafka en modo KRaft
+- PowerShell
+- Visual Studio Code
 
 El clúster utilizado está compuesto por un único nodo que actúa como broker y controller.
 Esta configuración es adecuada para realizar el ejercicio y aprender los conceptos básicos, pero no es una configuración recomendada para un entorno de producción.
@@ -53,14 +53,11 @@ El contenedor Kafka debe aparecer con estado Up.
 
 ## 4. Topic vehicle-positions
 
-El ejercicio utiliza un topic llamado:
+El ejercicio utiliza un topic llamado: vehicle-positions
 
-vehicle-positions
-
-El topic tiene:
-
-6 particiones
-Factor de replicación: 1
+El topic tiene: 
+- 6 particiones
+- Factor de replicación: 1
 
 Para comprobar la información del topic se utiliza:
 
@@ -70,28 +67,29 @@ docker exec kafka kafka-topics --bootstrap-server kafka:29092 --describe --topic
 
 La información proporcionada permite observar:
 
-Número de particiones.
-Factor de replicación.
-Leader de cada partición.
-Réplicas.
-ISR (In-Sync Replicas).
+- Número de particiones.
+- Factor de replicación.
+- Leader de cada partición.
+- Réplicas.
+- ISR (In-Sync Replicas).
 
 ## 5. Producer
 
 El producer utilizado en el ejercicio genera datos de posiciones de vehículos y los envía al topic vehicle-positions. Los datos representan posiciones de vehículos de transporte público y contienen información como:
 
-Identificador del vehículo.
-Línea.
-Velocidad.
-Dirección.
-Latitud.
-Longitud.
-Timestamp.
-Ruta.
-Estado del vehículo.
+- Identificador del vehículo.
+- Línea.
+- Velocidad.
+- Dirección.
+- Latitud.
+- Longitud.
+- Timestamp.
+- Ruta.
+- Estado del vehículo.
 
 Un ejemplo simplificado de un mensaje es:
 
+```text
 {
   "VP": {
     "desi": "65",
@@ -102,6 +100,7 @@ Un ejemplo simplificado de un mensaje es:
     "long": 24.978816
   }
 }
+```
 
 Estos datos representan eventos que llegan continuamente al sistema.
 
@@ -168,13 +167,7 @@ El controller participa en la gestión del estado y los metadatos del clúster K
 
 ### Topic
 
-Un topic es una categoría o flujo lógico donde Kafka almacena los mensajes.
-
-En este ejercicio:
-
-vehicle-positions
-
-es el topic utilizado para los eventos de posiciones de vehículos.
+Un topic es una categoría o flujo lógico donde Kafka almacena los mensajes. En este ejercicio "vehicle-positions" es el topic utilizado para los eventos de posiciones de vehículos.
 
 ### Partition
 
@@ -200,8 +193,10 @@ El laboratorio original estaba diseñado para ejecutarse en un entorno proporcio
 
 En lugar de depender directamente de:
 
+```powershell
 start.sh
 stop.sh
+```
 
 se creó un docker-compose.yml propio para levantar el broker Kafka. Esto permite que el ejercicio sea más reproducible y facilita entender qué componentes forman realmente el entorno.
 
@@ -235,14 +230,14 @@ Producer → Kafka Topic → Consumer
 
 Los principales conceptos aprendidos fueron:
 
-Kafka almacena eventos en topics.
-Los topics están formados por particiones.
-Los producers publican mensajes.
-Los consumers leen mensajes.
-Los brokers almacenan y sirven los datos.
-Los controllers gestionan información del clúster.
-Kafka puede utilizarse para procesar datos en tiempo real.
-Docker permite crear un entorno Kafka reproducible.
-Kafka resulta especialmente útil para arquitecturas de streaming y sistemas orientados a eventos.
+- Kafka almacena eventos en topics.
+- Los topics están formados por particiones.
+- Los producers publican mensajes.
+- Los consumers leen mensajes.
+- Los brokers almacenan y sirven los datos.
+- Los controllers gestionan información del clúster.
+- Kafka puede utilizarse para procesar datos en tiempo real.
+- Docker permite crear un entorno Kafka reproducible.
+- Kafka resulta especialmente útil para arquitecturas de streaming y sistemas orientados a eventos.
 
 Este ejercicio constituye la base para los siguientes ejercicios del proyecto, donde se profundizará en topics, particiones, keys, offsets, producers y consumers.

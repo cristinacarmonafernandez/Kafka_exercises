@@ -45,13 +45,13 @@ docker exec kafka kafka-topics --bootstrap-server kafka:29092 --describe --topic
 ```
 
 Este comando permite consultar:
-```text
-Número de particiones
-Leader de cada partición
-Réplicas
-ISR (In-Sync Replicas)
-Factor de replicación
-``
+
+Número de particiones  
+Leader de cada partición  
+Réplicas  
+ISR (In-Sync Replicas)  
+Factor de replicación  
+
 
 ### Crear y eliminar un topic
 
@@ -81,13 +81,13 @@ docker exec -it kafka kafka-console-producer --bootstrap-server kafka:29092 --to
 ```
 
 Se introdujeron mensajes como:
-```text 
-hello
-world
-Kafka
-is
-cool!!!!!
-```
+
+hello  
+world  
+Kafka  
+is  
+cool!!!!!  
+
 
 ### Consumer
 
@@ -114,13 +114,13 @@ El resultado mostró que todos los mensajes producidos sin key estaban almacenad
  
 Por ejemplo:
 
-```text 
-Partition:1    Offset:0    hello
-Partition:1    Offset:1    world
-Partition:1    Offset:2    Kafka
-Partition:1    Offset:3    is
-Partition:1    Offset:4    cool!!!!!
-```
+ 
+Partition:1    Offset:0    hello  
+Partition:1    Offset:1    world  
+Partition:1    Offset:2    Kafka  
+Partition:1    Offset:3    is  
+Partition:1    Offset:4    cool!!!!!  
+
 
 ### Observación
 
@@ -144,17 +144,17 @@ Los mensajes se introdujeron utilizando el formato:
 key,value
 
 Por ejemplo:
-```text
-1,apples
-2,pears
-3,walnuts
-4,peanuts
-5,oranges
-```
+
+1,apples  
+2,pears  
+3,walnuts  
+4,peanuts  
+5,oranges  
+
 
 La estructura de cada mensaje es:
-Key   = 1
-Value = apples
+Key   = 1  
+Value = apples  
 
 ### Consumir mostrando las keys
 
@@ -169,12 +169,12 @@ Los mensajes producidos originalmente sin key aparecen con: null mientras que lo
 
 Las keys pueden utilizarse para influir en la partición a la que se envía un mensaje. Esto es especialmente importante cuando queremos mantener relacionados los mensajes de una misma entidad. Algunos ejemplos de posibles keys en un sistema real serían:
 
-```text
-customer_id
-order_id
-device_id
-account_id
-```
+
+customer_id  
+order_id  
+device_id  
+account_id  
+
 
 Utilizar una key adecuada puede ayudar a mantener los eventos relacionados dentro de la misma partición y, por tanto, conservar su orden dentro de ella.
 
@@ -188,12 +188,12 @@ docker exec kafka kafka-console-consumer --bootstrap-server kafka:29092 --topic 
 
 Esto permite observar que cada mensaje tiene:
 
-```text
-Una key, que puede ser null.
-Una partición.
-Un offset.
-Un valor.
-```
+
+Una key, que puede ser null.  
+Una partición.  
+Un offset.  
+Un valor.  
+
 
 El offset identifica la posición del mensaje dentro de su partición. Por tanto, los offsets son independientes entre particiones. No existe un único contador global para todos los mensajes de un topic.
 
@@ -213,7 +213,9 @@ docker exec kafka kafka-metadata-shell --help
 
 La herramienta disponible acepta:
 
+```powershell
 --snapshot
+```
 
 en lugar de los parámetros utilizados en el laboratorio original.
 
@@ -258,42 +260,41 @@ Esto permitió identificar que estábamos trabajando con una versión diferente 
 
 Los comandos y herramientas de Kafka pueden cambiar entre versiones.
 Cuando un comando de un laboratorio o documentación no funciona, es importante:
-```text
-Comprobar la versión instalada.
-Consultar la ayuda de la herramienta.
-Comprobar las opciones disponibles.
-Adaptar el procedimiento al entorno utilizado.
-Documentar la diferencia.
-```
+
+- Comprobar la versión instalada.
+- Consultar la ayuda de la herramienta.
+- Comprobar las opciones disponibles.
+- Adaptar el procedimiento al entorno utilizado.
+- Documentar la diferencia.
+
 
 
 ## 9. Conceptos principales aprendidos
 
 Durante este ejercicio he trabajado con los siguientes conceptos:
-```text 
-Topics
-Particiones
-Replicación
-Leaders
-ISR (In-Sync Replicas)
-Producers
-Consumers
-Message keys
-Offsets
-Orden de mensajes
-KRaft
-Metadatos de Kafka
-Administración de topics
-Troubleshooting de herramientas Kafka
-Principales conclusiones
-Un topic puede dividirse en múltiples particiones.
-Cada partición mantiene el orden de sus propios mensajes.
-Kafka no garantiza un orden global entre diferentes particiones.
-Los offsets indican la posición de los mensajes dentro de una partición.
-Las keys pueden influir en la asignación de los mensajes a las particiones.
-Los consumers pueden mostrar información adicional como keys, particiones y offsets.
-El factor de replicación determina el número de réplicas de una partición.
-ISR significa In-Sync Replicas.
-KRaft gestiona los metadatos del clúster.
-Las herramientas y comandos pueden variar entre versiones de Kafka.
-```
+
+- Topics
+- Particiones
+- Replicación
+- Leaders
+- ISR (In-Sync Replicas)
+- Producers
+- Consumers
+- Message keys
+- Offsets
+- Orden de mensajes
+- KRaft
+- Metadatos de Kafka
+- Administración de topics
+- Troubleshooting de herramientas Kafka
+- Principales conclusiones
+- Un topic puede dividirse en múltiples particiones.
+- Cada partición mantiene el orden de sus propios mensajes.
+- Kafka no garantiza un orden global entre diferentes particiones.
+- Los offsets indican la posición de los mensajes dentro de una partición.
+- Las keys pueden influir en la asignación de los mensajes a las particiones.
+- Los consumers pueden mostrar información adicional como keys, particiones y offsets.
+- El factor de replicación determina el número de réplicas de una partición.
+- ISR significa In-Sync Replicas.
+- KRaft gestiona los metadatos del clúster.
+- Las herramientas y comandos pueden variar entre versiones de Kafka.
